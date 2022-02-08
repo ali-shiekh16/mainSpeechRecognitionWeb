@@ -5,9 +5,259 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Speech To Text</title>
-    <link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <script src="/js/index.js"></script>
-  </body>
+    <div class="logo-container">
+      <img src="./img/logo.png" alt="Speech to Text logo" class="logo" />
+      <div class="icons">
+        <span class="icon icon-minimize" id="minimizeIcon">&#9590;</span>
+        <span class="icon icon-close" id="closeIcon">&#9587;</span>
+      </div>
+    </div>
+    <header>
+      <div class="start-button">
+        <div class="start-button-wrapper">
+          <h3 class="start-button-text" id="startButton">Start</h3>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="subdropdown-items subdropdown-items-1" id="fontStyle"></div>
+      <div
+        class="subdropdown-items subdropdown-items-2"
+        id="horizontalAlignment"
+      >
+        <div class="subdropdown-item">
+          <h3 class="horizontalAlignh3">Full</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="horizontalAlignh3">Center</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="horizontalAlignh3">Left</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="horizontalAlignh3">Right</h3>
+        </div>
+      </div>
+      <div class="subdropdown-items subdropdown-items-3" id="verticalAlignment">
+        <div class="subdropdown-item">
+          <h3 class="verticalAlignH3">Full</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="verticalAlignH3">Middle</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="verticalAlignH3">Top</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="verticalAlignH3">Bottom</h3>
+        </div>
+      </div>
+      <div class="subdropdown-items subdropdown-items-4" id="standardSizes">
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="320-240">320x240 (4:3)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="640-360">640x360 (16:9)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="649-480">649x480 (4:3)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="848-480">848x480 (16:9)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="1024-768">1024x768 (4:3)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="1280-720">1280x720 (16:9)</h3>
+        </div>
+        <div class="subdropdown-item">
+          <h3 class="frameSizeH3" data-js-frame="1920-1080">
+            1920x1080 (16:9)
+          </h3>
+        </div>
+      </div>
+
+      <div class="subdropdown-items subdropdown-items-5" id="customSize">
+        <div class="subdropdown-item">
+          <input
+            type="number"
+            class="frame-size-input-1"
+            placeholder="width eg. 1080"
+          />
+          <input
+            type="number"
+            class="frame-size-input-2"
+            placeholder="height eg. 768"
+          />
+        </div>
+      </div>
+
+      <div class="subdropdown-items subdropdown-items-6" id="fontSize">
+        <div class="subdropdown-item">
+          <input type="number" id="fontSizeInput" />
+        </div>
+      </div>
+
+      <div class="subdropdown-items subdropdown-items-7" id="fontColor">
+        <div class="subdropdown-item">
+          <input type="color" id="fontColorInput" />
+        </div>
+      </div>
+
+      <div class="subdropdown-items subdropdown-items-8" id="fontBg">
+        <div class="subdropdown-item">
+          <input type="color" id="fontBgInput" />
+        </div>
+      </div>
+
+      <div class="subdropdown-items subdropdown-items-9" id="frameBg">
+        <div class="subdropdown-item">
+          <input type="color" id="frameBgInput" />
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="dropdown-container">
+          <div class="btn-primary btn-dropdown" id="dropdown">
+            <span class="btn-primary-text">TEXT</span>
+            <img src="./img/dropdown.png" class="btn-primary-dropdown-icon" />
+          </div>
+          <div class="dropdown-items">
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="fontStyle"
+            >
+              <span class="btn-primary-text">Font Style</span>
+            </div>
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="fontSize"
+            >
+              <span class="btn-primary-text">Font Size</span>
+            </div>
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="fontColor"
+            >
+              <span class="btn-primary-text">Font Color</span>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-container">
+          <div class="btn-primary btn-dropdown" id="dropdown">
+            <span class="btn-primary-text">Alignment</span>
+            <img src="./img/dropdown.png" class="btn-primary-dropdown-icon" />
+          </div>
+          <div class="dropdown-items">
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="verticalAlignment"
+            >
+              <span class="btn-primary-text">Vertical</span>
+            </div>
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="horizontalAlignment"
+            >
+              <span class="btn-primary-text">Horizontal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-container">
+          <div class="btn-primary btn-dropdown" id="dropdown">
+            <span class="btn-primary-text">Display Frame Size</span>
+            <img src="./img/dropdown.png" class="btn-primary-dropdown-icon" />
+          </div>
+          <div class="dropdown-items">
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="standardSizes"
+            >
+              <span class="btn-primary-text">Standard</span>
+            </div>
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="customSize"
+            >
+              <span class="btn-primary-text">Custom</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-container">
+          <div class="btn-primary btn-dropdown" id="dropdown">
+            <span class="btn-primary-text">Background</span>
+            <img src="./img/dropdown.png" class="btn-primary-dropdown-icon" />
+          </div>
+          <div class="dropdown-items">
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="fontBg"
+            >
+              <span class="btn-primary-text">Text Background</span>
+            </div>
+            <div
+              class="btn-primary btn-primary-clicked dropdown-item subdropdown"
+              data-js-subdropdown-id="frameBg"
+            >
+              <span class="btn-primary-text">Frame Background</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-container">
+        <h2>Selected Fields</h2>
+        <div class="preview">
+          <div class="preview-field-container">
+            <div class="label">
+              <h3>Text</h3>
+            </div>
+            <div class="field">
+              <h3 id="fontStyleText">COUSINE</h3>
+
+              <p class="field-label">Regular</p>
+            </div>
+          </div>
+
+          <div class="preview-field-container middle">
+            <div class="label">
+              <h3>Alignment</h3>
+            </div>
+            <div
+              class="alignment-preview-box img-align-y-full img-align-x-full"
+            >
+              <img
+                class="img-alignment"
+                src="./img/align-left.png"
+                alt="Left Align"
+              />
+            </div>
+          </div>
+
+          <div class="preview-field-container">
+            <div class="label">
+              <h3>Background</h3>
+            </div>
+
+            <div class="field" id="fontBgContainer">
+              <h3 id="fontColorH3">Text Background</h3>
+            </div>
+          </div>
+
+          <div class="preview-field-container last">
+            <div class="label"></div>
+            <div class="field" id="frameBgContainer">
+              <h3>FRAME Background</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+		<script src="/js/index.js"></script>
+	</body>
 </html>
