@@ -476,7 +476,6 @@ main {
 .speech-text {
   margin: 0;
   display: inline-block;
-  border: solid red 2px;
 }
 
 .icon-wrapper {
