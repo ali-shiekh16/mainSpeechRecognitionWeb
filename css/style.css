@@ -443,8 +443,10 @@ main {
   margin: 0;
   padding: 20px;
   padding: 35px 20px;
+  text-decoration: none;
   text-transform: uppercase;
   transition: 0.2s linear;
+  display: block;
 }
 
 .start-button-text:hover {
@@ -473,6 +475,8 @@ main {
 
 .speech-text {
   margin: 0;
+  display: inline-block;
+  border: solid red 2px;
 }
 
 .icon-wrapper {
