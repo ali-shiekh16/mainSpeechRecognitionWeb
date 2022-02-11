@@ -75,6 +75,7 @@ speechText.style.fontFamily = fontStyle;
 speechText.style.fontSize = fontSize + 'px';
 
 // SPEECH RECOGNITION STUFF
+let isStarted = true;
 window.SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -93,10 +94,19 @@ recognition.addEventListener('result', e => {
   p.innerText = result;
 
   if (e.results[0].isFinal) p = document.createElement('p');
+  !p.classList.contains('speech-text') && p.classList.add('speech-text');
+  p.style.color = fontColor;
 
   speechContainer.appendChild(p);
 });
 
-recognition.addEventListener('end', () => recognition.start());
+recognition.addEventListener('end', () => {
+  if (isStarted) recognition.start();
+});
 
 recognition.start();
+
+document.querySelector('#btnStop').addEventListener('click', e => {
+  isStarted = false;
+  recognition.stop();
+});
