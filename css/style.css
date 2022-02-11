@@ -482,3 +482,7 @@ main {
   display: flex;
   justify-content: end;
 }
+
+.btn-stop {
+  cursor: pointer;
+}

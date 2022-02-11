@@ -102,6 +102,7 @@ recognition.addEventListener('result', e => {
 
 recognition.addEventListener('end', () => {
   if (isStarted) recognition.start();
+  window.location = '/';
 });
 
 recognition.start();
