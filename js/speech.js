@@ -105,7 +105,7 @@ recognition.addEventListener('end', () => {
   else window.location = '/';
 });
 
-recognition.start();
+// recognition.start();
 
 document.querySelector('#btnStop').addEventListener('click', e => {
   isStarted = false;
